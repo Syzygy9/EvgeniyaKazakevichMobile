@@ -1,7 +1,9 @@
 package scenarios;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import setup.BaseTest;
+import util.ConfigProperties;
 
 public class nativeMobileTests extends BaseTest {
 
@@ -9,19 +11,17 @@ public class nativeMobileTests extends BaseTest {
     public void simpleNativeTest() throws IllegalAccessException, NoSuchFieldException, InstantiationException, InterruptedException {
 
         getPo().getWelement("registerButton").click();
-        getPo().getWelement("registrationEmail").sendKeys("sunset33@com");
-        getPo().getWelement("registrationUserName").sendKeys("allex");
-        getPo().getWelement("registrationPassword").sendKeys("8765421!");
-        getPo().getWelement("registrationConfirmPassword").sendKeys("8765421!");
+        getPo().getWelement("registrationEmail").sendKeys(ConfigProperties.getProperties().getProperty("Email"));
+        getPo().getWelement("registrationUserName").sendKeys(ConfigProperties.getProperties().getProperty("UserName"));
+        getPo().getWelement("registrationPassword").sendKeys(ConfigProperties.getProperties().getProperty("Password"));
+        getPo().getWelement("registrationConfirmPassword").sendKeys(ConfigProperties.getProperties().getProperty("Password"));
         getPo().getWelement("registerNewAccountButton").click();
-        getPo().getWelement("loginEmail").sendKeys("sunset33@com");
-        getPo().getWelement("loginPassword").sendKeys("8765421!");
+        getPo().getWelement("loginEmail").sendKeys(ConfigProperties.getProperties().getProperty("Email"));
+        getPo().getWelement("loginPassword").sendKeys(ConfigProperties.getProperties().getProperty("Password"));
         getPo().getWelement("signInButton").click();
         String pageText = getPo().getWelement("pageText").getText();
         System.out.println(pageText);
-        Thread.sleep(10000);
-
-        assert (pageText.equals("BudgetActivity"));
+        Assert.assertEquals(pageText, "BudgetActivity");
         System.out.println("Simple Android native test done");
 
     }
