@@ -11,13 +11,13 @@ public class nativeMobileTests extends BaseTest {
     public void simpleNativeTest() throws IllegalAccessException, NoSuchFieldException, InstantiationException, InterruptedException {
 
         getPo().getWelement("registerButton").click();
-        getPo().getWelement("registrationEmail").sendKeys(ConfigProperties.getProperties().getProperty("Email"));
-        getPo().getWelement("registrationUserName").sendKeys(ConfigProperties.getProperties().getProperty("UserName"));
-        getPo().getWelement("registrationPassword").sendKeys(ConfigProperties.getProperties().getProperty("Password"));
-        getPo().getWelement("registrationConfirmPassword").sendKeys(ConfigProperties.getProperties().getProperty("Password"));
+        getPo().getWelement("registrationEmail").sendKeys(ConfigProperties.getProperty("Email"));
+        getPo().getWelement("registrationUserName").sendKeys(ConfigProperties.getProperty("UserName"));
+        getPo().getWelement("registrationPassword").sendKeys(ConfigProperties.getProperty("Password"));
+        getPo().getWelement("registrationConfirmPassword").sendKeys(ConfigProperties.getProperty("Password"));
         getPo().getWelement("registerNewAccountButton").click();
-        getPo().getWelement("loginEmail").sendKeys(ConfigProperties.getProperties().getProperty("Email"));
-        getPo().getWelement("loginPassword").sendKeys(ConfigProperties.getProperties().getProperty("Password"));
+        getPo().getWelement("loginEmail").sendKeys(ConfigProperties.getProperty("Email"));
+        getPo().getWelement("loginPassword").sendKeys(ConfigProperties.getProperty("Password"));
         getPo().getWelement("signInButton").click();
         String pageText = getPo().getWelement("pageText").getText();
         System.out.println(pageText);
