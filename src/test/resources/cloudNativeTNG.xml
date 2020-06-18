@@ -3,7 +3,7 @@
     <parameter name="appType" value="native"/>
     <parameter name="deviceName" value="Huawei ELE-L29"/>
     <parameter name="platformName" value="Android"/>
-    <parameter name="appPackage" value="platkovsky.alexey.emaptestapp"/>
+    <parameter name="appPackage" value="platkovsky.alexey.epamtestapp"/>
     <parameter name="appActivity" value="activities.LoginActivity"/>
     <test name="Cloud Native tests">
         <groups>
