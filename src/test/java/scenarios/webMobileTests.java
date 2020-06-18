@@ -17,7 +17,7 @@ public class webMobileTests extends BaseTest {
     @Test(groups = {"web"}, description = "Make sure that we've opened Google homepage")
     public void simpleWebTest() throws InterruptedException, IllegalAccessException, NoSuchFieldException, InstantiationException {
         // open Google homepage
-        getDriver().get(ConfigProperties.getProperties().getProperty("URL"));
+        getDriver().get(ConfigProperties.getProperty("URL"));
 
         // Make sure that page has been loaded completely
         new WebDriverWait(getDriver(), 10).until(

@@ -1,23 +1,26 @@
 package util;
 
-import lombok.SneakyThrows;
-
+import setup.BaseTest;
 import java.io.IOException;
-import java.util.Properties;
+import java.io.InputStream;
 
 public class ConfigProperties {
+    private static java.util.Properties properties;
 
-    @SneakyThrows
-    public static Properties getProperties() {
-
-        Properties properties = new Properties();
-        String propertyPath = "config.properties";
-        try {
-            properties.load(ConfigProperties.class.getClassLoader()
-                    .getResourceAsStream(propertyPath));
+    static {
+        properties = new java.util.Properties();
+        try (InputStream inputStream = BaseTest.class.getClassLoader()
+                .getResourceAsStream("config.properties")) {
+            properties.load(inputStream);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
-        return properties;
+    }
+
+    private ConfigProperties() {}
+
+    public static String getProperty(String propertyName) {
+        return properties.getProperty(propertyName);
     }
 }
+
